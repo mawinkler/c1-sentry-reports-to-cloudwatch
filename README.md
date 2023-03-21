@@ -27,11 +27,11 @@ Next, go to Lambda --> Create function.
 
 Leave it to `Author from scratch`.
 
-Parameter | Value
---------- | -----
-Name | Whatever you want, e.g. `cloud-sentry-ReportCreated`
-Runtime | `Python 3.9`
-Architecture | `x86_64`
+Parameter      | Value
+---------------|-----------------------------------------------------
+Name           | Whatever you want, e.g. `cloud-sentry-ReportCreated`
+Runtime        | `Python 3.9`
+Architecture   | `x86_64`
 Execution role | `Create a new role with basic Lambda permissions`
 
 ![alt text](images/lambda-01.png "Create")
@@ -135,13 +135,11 @@ Now, the last step. We need to send an event to the Lambda whenever a new file (
 
 Press `[+ Add trigger]`  and select S3 as the source.
 
-As the Bucket choose your report bucket from above.
-
-Property | Value
--------- | -----
-Name | Whatever you want, e.g. `sentrystackset-f8a28-stackresourcebucket-report-notification`
-Prefix | `scan-report/`
-Suffix | `final_report.json`
+Property    | Value
+------------|-------------------------------------
+Bucket      | Choose your report bucket from above
+Prefix      | `scan-report/`
+Suffix      | `final_report.json`
 Event types | Check `Object creation - Put`
 
 ![alt text](images/lambda-03.png "Trigger")
